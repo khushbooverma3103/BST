@@ -1,0 +1,24 @@
+int Floor(BinaryTreeNode<int> *node, int input)
+{
+		/*Write your code here. 
+	 *Don't write main().
+	 *Don't take input, it is passed as function argument.
+	 *Don't print output.
+	 *Taking input and printing output is handled automatically.
+	*/ 
+	BinaryTreeNode<int> *temp= node;
+	while(temp->left){
+		temp=temp->left;
+	}
+	int ans= temp->data;
+	while(node){
+		if(node->data>input)  {
+			node=node->left;
+		}
+		else{
+			ans=max(ans, node->data);
+			node=node->right;
+		}
+	}
+	return ans;
+}
